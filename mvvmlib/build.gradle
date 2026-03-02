@@ -1,0 +1,99 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdk 30
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 30
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    // androidx
+    api "androidx.legacy:legacy-support-v4:1.0.0"
+    api "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+    api "com.google.android.material:material:1.4.0"
+    api "androidx.appcompat:appcompat:1.2.0"
+    api "androidx.recyclerview:recyclerview:1.1.0"
+    api "androidx.constraintlayout:constraintlayout:2.0.4"
+    api "androidx.core:core:1.6.0"
+
+    // rxjava
+    api "io.reactivex.rxjava2:rxjava:2.2.3"
+    api "io.reactivex.rxjava2:rxandroid:2.1.0"
+
+    api("com.trello.rxlifecycle2:rxlifecycle:2.2.2") {
+        exclude group: 'androidx'
+    }
+    api("com.trello.rxlifecycle2:rxlifecycle-components:2.2.2") {
+        exclude group: 'androidx'
+    }
+
+    api("com.jakewharton.rxbinding4:rxbinding:4.0.0") {
+        exclude group: 'androidx'
+    }
+
+    api "com.guolindev.permissionx:permissionx:1.6.0"
+
+    // network
+    api "com.squareup.okhttp3:okhttp:4.10.0"
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    api "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    // eventbus
+    api "org.greenrobot:eventbus:3.1.1"
+
+    // gson
+    api "com.google.code.gson:gson:2.8.5"
+
+    // material dialogs
+    api("com.afollestad.material-dialogs:core:0.9.4.5") {
+        exclude group: 'androidx'
+    }
+    api("com.afollestad.material-dialogs:commons:0.9.4.5") {
+        exclude group: 'androidx'
+    }
+
+    // glide
+    api("com.github.bumptech.glide:glide:4.14.2") {
+        exclude group: 'androidx'
+    }
+    annotationProcessor "com.github.bumptech.glide:compiler:4.14.2"
+
+    // shape
+    api "io.github.csdn-mobile:RoundView:1.8.0"
+
+    // bindingcollectionadapter
+    api("me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:2.2.0") {
+        exclude group: 'androidx'
+    }
+    api("me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:2.2.0") {
+        exclude group: 'androidx'
+    }
+
+    // lifecycle
+    api "androidx.lifecycle:lifecycle-extensions:2.0.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.0.0"
+
+    api "org.slf4j:slf4j-api:2.0.7"
+    api "com.github.tony19:logback-android:3.0.0"
+}
+
